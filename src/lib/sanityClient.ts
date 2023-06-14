@@ -5,9 +5,11 @@ import { createClient } from "next-sanity";
 
 export const client = createClient({
     apiVersion : "2023-06-14",      // taken from sanity studion > vision
-    dataset : process.env.NEXT_PUBLIC_SANITY_DATASET,         
+    dataset : "production",         
     projectId : process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    token : process.env.NEXT_PUBLIC_SANITY_ACCESS_TOKEN,
+    // API Token generated from sanity management tool and stored in env file manually
     useCdn : true                   // data will cached on CDN
 })
 
-// await client.fetch();
+// await client.fetch("");
