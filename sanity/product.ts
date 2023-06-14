@@ -4,9 +4,40 @@ export const product = {
     title : 'Product',
     fields : [          // document fields
         {
-            name : 'title',     // data fetching name
-            title : 'Title',
+            name : 'title',     // data fetching name shown in JSON
+            title : 'Title',    // Display name in Sanity Studio
             type : 'string'
-        }
+        },
+        {
+            name : 'category',
+            title : 'Category',
+            type : 'string',
+            options : {         // Category dropdown
+                list : [
+                    { title : 'Female' , value : 'female'},
+                    { title : 'Male' , value : 'male'}
+                ]
+            }
+        },
+        {
+            name : 'subtitle',
+            title : 'Sub Title',
+            type : 'string'
+        },
+        {
+            name : 'description',
+            title : 'Description',
+            type : 'string'
+        },
+        {
+            name : 'image',
+            title : 'Image',
+            type : 'image'
+        },
+        {
+            name : 'price',
+            title : 'Price',
+            type : 'number'
+        },
     ]   
 }
