@@ -1,3 +1,5 @@
+import { defineField } from "sanity";
+
 export const product = {
     name : 'product',  // This name will be shown used data is fetched
     type : 'document', //document type means model which has multiple fields like title, desc etc
@@ -8,17 +10,15 @@ export const product = {
             title : 'Title',    // Display name in Sanity Studio
             type : 'string'
         },
-        {
+       defineField({
             name : 'category',
             title : 'Category',
-            type : 'string',
-            options : {         // Category dropdown
-                list : [
-                    { title : 'Female' , value : 'female'},
-                    { title : 'Male' , value : 'male'}
-                ]
-            }
-        },
+            type : 'reference',
+            to : [
+                {type : 'category'}
+            ]
+           
+        }),
         {
             name : 'subtitle',
             title : 'Sub Title',

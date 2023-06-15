@@ -15,6 +15,7 @@ export const getProductData =async () => {
     description,
     subtitle,
     price,
+    image,
     category
   }`);
   return res;
