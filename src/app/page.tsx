@@ -4,6 +4,7 @@ import Image from "next/image";
 import Section from "./components/Section";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+import Card from "./components/Card";
 
 interface IProduct {
   _id: string;
@@ -14,8 +15,6 @@ interface IProduct {
   price: number;
   image: SanityImage;
 }
-
-
 
 export const getProductData = async () => {
   const res = await client.fetch(`*[_type == 'product']{
@@ -51,10 +50,12 @@ export default async function Home() {
               Anyone can beat you but no one can beat your outfit as long as you
               wear Dine outfits.
             </p>
-            {/* ShadCN button*/}
+            <Button>
+              <ShoppingCart className="mr-2 h-4 w-4" /> Start Shopping
+            </Button>
           </div>
           <div className="flex flex-col lg:flex-row md:flex-row mt-16 w-full justify-between items-center">
-            <div className="flex justify-between w-full">
+            <div className="flex justify-between w-full pr-2.5">
               <Image
                 src={"/vercase.png"}
                 width={92}
@@ -68,7 +69,7 @@ export default async function Home() {
                 alt="in-stlye"
               />
             </div>
-            <div className="flex justify-between w-full">
+            <div className="flex justify-between w-full pl-2.5">
               <Image src={"/bustle.png"} width={92} height={30} alt="bustle" />
               <Image src={"/bazaar.png"} width={92} height={30} alt="bazaar" />
             </div>
@@ -92,7 +93,7 @@ export default async function Home() {
             <div className="flex flex-col justify-center items-center gap-2.5">
               <Image
                 src={"/promo1.png"}
-                width={800}
+                width={600}
                 height={300}
                 alt="promo 1"
               />
@@ -129,19 +130,14 @@ export default async function Home() {
       <div className="flex flex-col lg:flex-row md:flex-row justify-between">
         {showcase.map((item) => {
           return (
-            <div className="flex w-1/3 p-2.5 h-fit items-start flex-col gap-2.5">
-              <div className="flex p-2.5 flex-col justify-center items-center gap-2.5">
-                {/* Sanity Image */}
-              </div>
-              <div className="flex flex-col p-2.5 gap-2.5 items-start">
-                <h1 className="text-xl text-bold">{item.title}</h1>
-                <p className="text-gray-400">{item.category.name}</p>
-                <p className="text-xl">${item.price}</p>
-                {/* <Button>
-                  <ShoppingCart className="mr-2 h-4 w-4" /> Add To Cart
-                </Button> */}
-              </div>
-            </div>
+            <>
+              <Card
+                title={item.title}
+                subtitle={item.subtitle}
+                price={item.price}
+                image = {item.image}
+              />
+            </>
           );
         })}
       </div>

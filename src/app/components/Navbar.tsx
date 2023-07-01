@@ -1,3 +1,4 @@
+import { Menu, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,20 +14,14 @@ const Navbar = () => {
         </Link>
 
         <div className="block lg:hidden md:hidden">
-          <Image src="/hamburger.svg" width={25} height={25} alt="hamburger" />
+          <Menu />
         </div>
       </div>
 
       {/* search bar */}
 
-      <div className="flex lg:w-2/6 md:w-2/6 w-full border border-black rounded-full px-1.5">
-        <Image
-          src="/search icon.svg"
-          width={25}
-          height={25}
-          alt="search icon"
-          className=""
-        />
+      <div className="flex lg:w-2/6 md:w-2/6 w-full border border-black rounded-full px-1.5 items-center">
+       <Search />
         <input
           type="text"
           name="searchbar"
@@ -39,22 +34,22 @@ const Navbar = () => {
       {/* nav link */}
 
       <div className="flex w-2/6 justify-between hidden lg:flex">
-        <Link className="text-lg" href={"/"}>
+        <Link className="text-lg" href="/female">
           Female
         </Link>
-        <Link className="text-lg" href={"/"}>
+        <Link className="text-lg" href={"/male"}>
           Male
         </Link>
-        <Link className="text-lg" href={"/"}>
+        <Link className="text-lg" href={"/kids"}>
           Kids
         </Link>
-        <Link className="text-lg" href={"/"}>
+        <Link className="text-lg" href={"/all"}>
           All Products
         </Link>
       </div>
 
       <div className="bg-gray-400 p-2.5 rounded-full hidden lg:block md:block">
-        <Image src="/cart icon.svg" width={25} height={25} alt="cart icon" />
+        <ShoppingCart />
       </div>
     </nav>
   );
