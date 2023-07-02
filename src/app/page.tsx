@@ -35,7 +35,6 @@ export default async function Home() {
   const data: IProduct[] = await getProductData();
   const showcase: IProduct[] = [data[0], data[1], data[2], data[3]];
   const promo: IProduct[] = [data[3], data[4]];
-  console.log(showcase[0].title);
 
   return (
     <>
@@ -115,20 +114,22 @@ export default async function Home() {
         <div className="flex flex-col lg:flex-row md:flex-row w-full p-2.5 items-start gap-5 lg:w-1/2 justify-between">
           {promo.map((item) => {
             return (
-              <div className="flex py-2.5 flex-col items-start gap-2.5 w-full ">
-                <div className="flex p-2.5 flex-col items-start gap-2.5">
-                  <p>{item.title}</p>
-                  <p className="text-bold">${item.price}</p>
+              <>
+                <div className="flex py-2.5 flex-col items-start gap-2.5 w-full ">
+                  <div className="flex p-2.5 flex-col items-start gap-2.5">
+                    <p>{item.title}</p>
+                    <p className="text-bold">${item.price}</p>
+                  </div>
+                  <div className="flex py-2.5 justify-center items-start gap-2.5">
+                    <Image
+                      src={urlForImage(item.image).url()}
+                      width={300}
+                      height={400}
+                      alt="promo"
+                    />
+                  </div>
                 </div>
-                <div className="flex py-2.5 justify-center items-start gap-2.5">
-                  <Image
-                    src={urlForImage(item.image).url()}
-                    width={300}
-                    height={400}
-                    alt="promo"
-                  />
-                </div>
-              </div>
+              </>
             );
           })}
         </div>
