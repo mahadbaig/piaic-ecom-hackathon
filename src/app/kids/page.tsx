@@ -36,7 +36,7 @@ const page = () => {
         {
             data.map((item) => {
                 return(
-                    <Card title = {item.title} subtitle = {item.subtitle} price = {item.price}/>
+                    <Card title = {item.title} subtitle = {item.subtitle} price = {item.price} image = {item.image}/>
                 )
             })
         }
