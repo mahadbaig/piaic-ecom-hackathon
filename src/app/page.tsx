@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 import Card from "./components/Card";
 import { urlForImage } from "../../sanity/lib/image";
+import Link from "next/link";
 
 interface IProduct {
   _id: string;
@@ -51,9 +52,11 @@ export default async function Home() {
               Anyone can beat you but no one can beat your outfit as long as you
               wear Dine outfits.
             </p>
-            <Button>
-              <ShoppingCart className="mr-2 h-4 w-4" /> Start Shopping
-            </Button>
+            <Link href={"/all"}>
+              <Button>
+                <ShoppingCart className="mr-2 h-4 w-4" /> Start Shopping
+              </Button>
+            </Link>
           </div>
           <div className="flex flex-col lg:flex-row md:flex-row mt-16 w-full justify-between items-center">
             <div className="flex justify-between w-full pr-2.5">
@@ -118,7 +121,12 @@ export default async function Home() {
                   <p className="text-bold">${item.price}</p>
                 </div>
                 <div className="flex py-2.5 justify-center items-start gap-2.5">
-                  <Image src={urlForImage(item.image).url()} width={300} height={400} alt="promo"/>
+                  <Image
+                    src={urlForImage(item.image).url()}
+                    width={300}
+                    height={400}
+                    alt="promo"
+                  />
                 </div>
               </div>
             );
@@ -136,7 +144,7 @@ export default async function Home() {
                 title={item.title}
                 subtitle={item.subtitle}
                 price={item.price}
-                image = {item.image}
+                image={item.image}
               />
             </>
           );
