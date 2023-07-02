@@ -3,24 +3,16 @@ import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 
 import React from 'react'
-import {client} from '../../lib/sanityClient'
-import imageUrlBuilder from '@sanity/image-url'
 import Image from "next/image";
+import { urlForImage } from "../../../sanity/lib/image";
 
-const builder = imageUrlBuilder(client)
-
-function urlFor(source:any) {
-  return builder.image(source)
-}
 
 const Card = ({title, subtitle, price, image}:any) => {
   return (
     <>
-      
-        
-            <div className="flex lg:w-1/3 md:w-1/3 w-full p-2.5 h-fit items-start flex-col gap-2.5">
+          <div className="flex p-5 mb-5 hover:shadow-lg h-fit items-start flex-col gap-2.5">
             <div className="flex p-2.5 flex-col justify-center items-center gap-2.5">
-              <Image src={urlFor({image}).url()} alt="Product image"/>
+              <Image src={urlForImage(image).url()} alt="Product image" width={300} height={400}/>
             </div>
             <div className="flex flex-col p-2.5 gap-2.5 items-start">
               <h1 className="text-xl text-bold">{title}</h1>
@@ -31,8 +23,6 @@ const Card = ({title, subtitle, price, image}:any) => {
               </Button>
             </div>
           </div>
-        
-     
     </>
   );
 };

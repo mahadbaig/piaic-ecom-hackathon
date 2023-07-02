@@ -1,7 +1,7 @@
 // Fetching data from sanity to nextjs
 // Clinet connects Next and Sanity
  
-import { createClient } from "next-sanity";
+import { createClient } from "@sanity/client";
 
 export const client = createClient({
     apiVersion : "2023-06-14",      // taken from sanity studion > vision

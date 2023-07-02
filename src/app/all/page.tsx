@@ -32,11 +32,11 @@ console.log(data);
 
 const page = () => {
   return(
-    <div className="flex flex-col lg:flex-row md:flex-row flex-wrap justify-between">
+    <div className="flex flex-col lg:flex-row md:flex-row flex-wrap justify-between mt-16 mb-16">
         {
             data.map((item) => {
                 return(
-                    <Card title = {item.title} subtitle = {item.subtitle} price = {item.price}/>
+                    <Card title = {item.title} subtitle = {item.subtitle} price = {item.price} image = {item.image}/>
                 )
             })
         }

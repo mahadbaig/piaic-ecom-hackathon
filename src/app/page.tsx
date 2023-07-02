@@ -5,6 +5,7 @@ import Section from "./components/Section";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 import Card from "./components/Card";
+import { urlForImage } from "../../sanity/lib/image";
 
 interface IProduct {
   _id: string;
@@ -31,7 +32,7 @@ export const getProductData = async () => {
 
 export default async function Home() {
   const data: IProduct[] = await getProductData();
-  const showcase: IProduct[] = [data[0], data[1], data[2]];
+  const showcase: IProduct[] = [data[0], data[1], data[2], data[3]];
   const promo: IProduct[] = [data[3], data[4]];
   console.log(showcase[0].title);
 
@@ -108,7 +109,7 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="flex w-full p-2.5 items-start gap-5 lg:w-1/2 justify-between">
+        <div className="flex flex-col lg:flex-row md:flex-row w-full p-2.5 items-start gap-5 lg:w-1/2 justify-between">
           {promo.map((item) => {
             return (
               <div className="flex py-2.5 flex-col items-start gap-2.5 w-full ">
@@ -117,7 +118,7 @@ export default async function Home() {
                   <p className="text-bold">${item.price}</p>
                 </div>
                 <div className="flex py-2.5 justify-center items-start gap-2.5">
-                  {/* Sanity product image */}
+                  <Image src={urlForImage(item.image).url()} width={300} height={400} alt="promo"/>
                 </div>
               </div>
             );
