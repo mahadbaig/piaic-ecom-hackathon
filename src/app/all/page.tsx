@@ -1,18 +1,7 @@
 import { client } from "../../lib/sanityClient";
-import { Image } from "sanity";
 import Card from "../components/Card";
 
-interface IProduct {
-  _id: string;
-  title: string;
-  subtitle: string;
-  category: { name: string };
-  description: string;
-  price: number;
-  image: Image;
-}
-
-export const getProductData = async () => {
+const getProductData = async () => {
   const res =
     await client.fetch(`*[_type == "product"]{
   
@@ -27,14 +16,14 @@ export const getProductData = async () => {
   return res;
 };
 
-const data: IProduct[] = await getProductData();
+const data = await getProductData();
 console.log(data);
 
 const page = () => {
   return(
     <div className="flex flex-col lg:flex-row md:flex-row flex-wrap justify-between mt-16 mb-16">
         {
-            data.map((item) => {
+            data.map((item:any) => {
                 return(
                   <>
                   <Card
