@@ -28,7 +28,6 @@ const getProductData = async () => {
 };
 
 const data: IProduct[] = await getProductData();
-console.log(data);
 
 const page = () => {
   return (
@@ -41,6 +40,7 @@ const page = () => {
               subtitle={item.subtitle}
               price={item.price}
               image={item.image}
+              _id={item._id}
             />
           </>
         );

@@ -146,6 +146,7 @@ export default async function Home() {
                 subtitle={item.subtitle}
                 price={item.price}
                 image={item.image}
+                _id={item._id}
               />
             </>
           );

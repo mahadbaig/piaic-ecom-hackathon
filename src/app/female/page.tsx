@@ -28,28 +28,25 @@ const getProductData = async () => {
 };
 
 const data: IProduct[] = await getProductData();
-console.log(data);
 
 const page = () => {
-  return(
+  return (
     <div className="flex flex-col lg:flex-row md:flex-row flex-wrap justify-between">
-        {
-            data.map((item) => {
-                return(
-                  <>
-                  <Card
-                    title={item.title}
-                    subtitle={item.subtitle}
-                    price={item.price}
-                    image={item.image}
-                  />
-                </>
-                )
-            })
-        }
+      {data.map((item) => {
+        return (
+          <>
+            <Card
+              title={item.title}
+              subtitle={item.subtitle}
+              price={item.price}
+              _id={item._id}
+              image={item.image}
+            />
+          </>
+        );
+      })}
     </div>
-  ) 
-
+  );
 };
 
 export default page;
